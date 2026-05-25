@@ -129,6 +129,7 @@ _Spesifik per dokumen: lihat file referensi mode terkait._
 
 Kontribusi terbuka melalui PR/Github Issues.  
 Lisensi: [MIT](LICENSE)
+Penulis: syams_iders - NUSTEK AI
 
 ---
 

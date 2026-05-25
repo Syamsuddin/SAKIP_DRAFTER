@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/logo-sakip-drafter.png" alt="Logo SAKIP DRAFTER" width="200"/>
+  <img src="img/logo-sakip-drafter.png" alt="Logo SAKIP DRAFTER"/>
 </p>
 
 <div align="center">

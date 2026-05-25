@@ -1,18 +1,3 @@
-name: sakip-drafter
-description: >
-  Skill perencana dan penyusun dokumen SAKIP (Sistem Akuntabilitas Kinerja
-  Instansi Pemerintah) untuk Pemerintah Daerah. Gunakan skill ini SETIAP KALI
-  pengguna menyebut kata-kata berikut: SAKIP, AKIP, RPJMD, Renstra OPD, Renja,
-  Perjanjian Kinerja, PK, IKU, IKK, LKIP, LAKIP, cascading kinerja, pohon
-  kinerja, evaluasi AKIP, indikator kinerja, target kinerja, capaian kinerja,
-  perencanaan strategis OPD, atau meminta bantuan menulis dokumen perencanaan
-  pemerintah daerah. Skill ini mencakup 5 mode: DRAFTER (menyusun dokumen),
-  REVIEWER (mengkritisi dokumen), CASCADER (menurunkan kinerja antar level),
-  INDIKATOR (merancang IKU/IKK SMART), dan EVALUATOR (simulasi penilaian AKIP).
-  Output tersedia dalam format narasi birokrasi Indonesia, tabel terstruktur,
-  dan JSON untuk integrasi sistem.
----
-
 # SAKIP_DRAFTER — Panduan Operasional
 
 ## Gambaran Umum

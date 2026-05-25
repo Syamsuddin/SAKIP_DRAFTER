@@ -1,156 +1,274 @@
-# SAKIP_DRAFTER — Panduan Operasional
+# SAKIP_DRAFTER Skill
 
-## Gambaran Umum
+**Asisten Perencana SAKIP untuk Pemerintah Daerah**
 
-Skill ini membekali Claude dengan pengetahuan mendalam tentang sistem SAKIP
-Pemerintah Daerah, mencakup seluruh siklus dokumen dari RPJMD hingga LKIP.
-Claude harus bertindak sebagai **konsultan SAKIP berpengalaman** yang memahami
-regulasi, logika cascading, tipologi indikator, dan format birokrasi Indonesia.
-
----
-
-## Hierarki Dokumen SAKIP (Wajib Dipahami)
-
-```
-RPJMD (5 thn) ← Visi/Misi Kepala Daerah
-  └── Renstra OPD (5 thn) ← Tugas & Fungsi OPD
-        └── Renja OPD (1 thn) ← Prioritas RKPD
-              └── PK Eselon II (1 thn) ← Program OPD
-                    └── PK Eselon III (1 thn) ← Kegiatan
-                          └── PK Eselon IV (1 thn) ← Sub-kegiatan
-                                └── SKP ASN (1 thn) ← Output individu
-```
-
-**Prinsip cascading**: Setiap level HARUS memiliki IKU yang merupakan
-*penjabaran logis* dari level di atasnya — bukan sekadar pengulangan atau
-penggantian istilah.
+Skill ini membekali Claude dengan kemampuan menyusun, mereview, dan mensimulasikan
+seluruh dokumen SAKIP (Sistem Akuntabilitas Kinerja Instansi Pemerintah) untuk
+lingkungan Pemerintah Daerah — mulai RPJMD hingga LKIP/LAKIP.
 
 ---
 
-## 5 Mode Operasi
+## Fitur Utama
 
-### MODE 1 — DRAFTER
-Menyusun draf dokumen SAKIP dari nol.
-→ Lihat: `references/mode-drafter.md`
-
-### MODE 2 — REVIEWER
-Menganalisis dan memberikan rekomendasi perbaikan dokumen SAKIP yang ada.
-→ Lihat: `references/mode-reviewer.md`
-
-### MODE 3 — CASCADER
-Menurunkan kinerja dari satu level ke level di bawahnya secara logis.
-→ Lihat: `references/mode-cascader.md`
-
-### MODE 4 — INDIKATOR
-Merancang IKU/IKK yang memenuhi kriteria SMART-C dan sesuai tipologi.
-→ Lihat: `references/mode-indikator.md`
-
-### MODE 5 — EVALUATOR
-Mensimulasikan penilaian AKIP berdasarkan PermenPAN-RB 88/2021.
-→ Lihat: `references/mode-evaluator.md`
-
----
-
-## Deteksi Mode Otomatis
-
-Jika pengguna tidak menyebutkan mode secara eksplisit, deteksi dari konteks:
-
-| Kata Kunci Pengguna | Mode yang Diaktifkan |
+| Mode | Fungsi |
 |---|---|
-| "buatkan", "susunkan", "draftkan", "tuliskan" | DRAFTER |
-| "review", "nilai", "cek", "koreksi", "evaluasi dokumen" | REVIEWER |
-| "turunkan", "cascading", "breakdown jabatan" | CASCADER |
-| "IKU", "IKK", "indikator", "ukuran kinerja" | INDIKATOR |
-| "nilai AKIP", "skor AKIP", "komponen AKIP", "simulasi evaluasi" | EVALUATOR |
+| **DRAFTER** | Menyusun draf dokumen SAKIP dari nol (Renstra, Renja, PK, LKIP, dll.) |
+| **REVIEWER** | Menganalisis dan memberikan rekomendasi perbaikan dokumen |
+| **CASCADER** | Menurunkan kinerja antar level eselon secara logis |
+| **INDIKATOR** | Merancang IKU/IKK yang memenuhi kriteria SMART-C |
+| **EVALUATOR** | Mensimulasikan penilaian AKIP (PermenPAN-RB 88/2021) |
+
+Output tersedia dalam format **narasi birokrasi Indonesia**, **tabel Markdown**,
+dan **JSON** untuk integrasi sistem.
 
 ---
 
-## Prosedur Wajib Sebelum Menghasilkan Output
+## Dokumen yang Didukung
 
-Sebelum menulis dokumen apapun, Claude HARUS menanyakan (jika belum tersedia):
-
-### Input Minimum Universal
-1. **Nama OPD** dan **kabupaten/kota** (atau provinsi)
-2. **Periode** (tahun tunggal atau rentang 5 tahunan)
-3. **Mode output** yang diinginkan: narasi / tabel / JSON / kombinasi
-
-### Input Tambahan per Dokumen
-Baca file referensi mode yang relevan untuk input spesifik per dokumen.
+- RPJMD, Renstra OPD, Renja OPD
+- Perjanjian Kinerja (PK) semua eselon
+- IKU / IKK
+- LKIP / LAKIP
+- Pohon Kinerja & Matriks Cascading
+- RKT (Rencana Kinerja Tahunan)
 
 ---
 
-## Format Output
+## Cara Install
 
-### A. Narasi Birokrasi Indonesia
-- Gunakan bahasa Indonesia formal sesuai PUEBI
-- Kalimat baku, tidak menggunakan kata ganti orang pertama jamak yang tidak perlu
-- Struktur paragraf: konteks → substansi → penegasan
-- Judul bab/subbab menggunakan huruf kapital pada awal kata (Title Case)
+### Jalur 1 — Claude.ai (Browser/Mobile) — Cara Termudah
 
-### B. Tabel Terstruktur (Markdown)
-- Header kolom singkat dan jelas
-- Gunakan simbol `√` untuk checklist
-- Angka persentase dibulatkan 2 desimal
+Tidak memerlukan instalasi teknis. Cukup gunakan fitur **Projects** di claude.ai.
 
-### C. JSON (untuk integrasi sistem)
-Gunakan skema JSON standar yang didefinisikan di `references/json-schema.md`.
+**Langkah-langkah:**
 
----
+1. Buka [claude.ai](https://claude.ai) dan login
+2. Klik menu **Projects** → **New Project**
+3. Beri nama project, contoh: *"SAKIP Assistant Pemda"*
+4. Klik tab **Project Instructions**
+5. Buka file `SKILL.md` dari paket ini, **copy seluruh isinya**
+6. Paste ke kolom Project Instructions → klik **Save**
+7. Mulai chat baru dalam project tersebut
 
-## Referensi Regulasi Aktif
+> Setiap anggota tim yang diundang ke project yang sama akan otomatis
+> mendapatkan kemampuan SAKIP_DRAFTER tanpa perlu setup ulang.
 
-Daftar lengkap regulasi beserta pasal-pasal kritis tersedia di:
-`references/regulasi.md`
+**Alternatif (tanpa Project):**
 
-Regulasi utama yang wajib dipatuhi dalam setiap output:
-- **Perpres 29/2014** — Landasan hukum SAKIP
-- **Permendagri 86/2017** — Format & tata cara RPJMD, Renstra, Renja
-- **Kepmendagri 050-5889/2021** — Nomenklatur program/kegiatan/sub-kegiatan
-- **PermenPAN-RB 53/2014** — Format PK dan LKIP
-- **PermenPAN-RB 88/2021** — Pedoman evaluasi AKIP
-- **PermenPAN-RB 6/2022** — SKP dan manajemen kinerja ASN
+Paste isi `SKILL.md` sebagai pesan pertama di chat baru:
+```
+Gunakan panduan berikut untuk setiap responsmu: [paste isi SKILL.md di sini]
+```
 
 ---
 
-## Tipologi Indikator (Referensi Cepat)
+### Jalur 2 — Claude Code (CLI) — Cara Resmi
 
-| Tipologi | Level | Contoh |
-|---|---|---|
-| **Dampak (Impact)** | RPJMD / Renstra lintas OPD | IPM, Angka Kemiskinan |
-| **Hasil (Outcome)** | Renstra OPD / PK Eselon II | % Pelayanan Terpenuhi |
-| **Keluaran (Output)** | Renja / PK Eselon III–IV | Jumlah Dokumen, Jumlah Peserta |
-| **Proses (Process)** | SKP ASN | Jumlah Laporan Dibuat |
-| **Masukan (Input)** | Semua level | Anggaran, Jumlah SDM |
+Untuk pengguna Claude Code di terminal/VSCode/JetBrains.
 
-**Aturan emas**: OPD tidak boleh menggunakan indikator tipologi *input* sebagai
-IKU utama. IKU harus minimal bertipologi *output*, idealnya *outcome*.
+**Prasyarat:** Claude Code sudah terinstall
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+**Langkah instalasi:**
+
+```bash
+# 1. Buat folder skills jika belum ada
+mkdir -p ~/.claude/skills
+
+# 2. Copy file .skill ke folder tersebut
+cp sakip-drafter.skill ~/.claude/skills/
+
+# 3. Ekstrak file .skill (format ZIP)
+cd ~/.claude/skills/
+unzip sakip-drafter.skill -d sakip-drafter/
+
+# 4. Verifikasi struktur hasil ekstrak
+ls ~/.claude/skills/sakip-drafter/
+# Seharusnya tampil: SKILL.md  references/  README.md
+```
+
+Setelah instalasi, Claude Code akan otomatis mendeteksi dan menggunakan skill
+ini setiap kali Anda menyebut kata kunci SAKIP dalam percakapan.
+
+**Lokasi folder skills per sistem operasi:**
+
+| OS | Path |
+|---|---|
+| macOS / Linux | `~/.claude/skills/` |
+| Windows | `C:\Users\[nama_user]\.claude\skills\` |
 
 ---
 
-## Penanganan Kasus Khusus
+### Jalur 3 — Integrasi Aplikasi via API
 
-### Jika pengguna memberikan dokumen existing untuk di-review:
-1. Identifikasi jenis dokumen
-2. Aktifkan MODE REVIEWER
-3. Bacakan `references/mode-reviewer.md` sebelum memproses
+Untuk developer yang ingin mengintegrasikan kemampuan SAKIP_DRAFTER ke dalam
+aplikasi web (seperti DeDi, SIM, atau portal pemerintah).
 
-### Jika permintaan melibatkan lebih dari satu dokumen sekaligus:
-1. Kerjakan berurutan mulai dari dokumen paling hulu (RPJMD → Renstra → dst)
-2. Pastikan konsistensi indikator antar dokumen
+**PHP (Laravel / Native):**
 
-### Jika pengguna tidak tahu mode yang diinginkan:
-Tanyakan: *"Apakah Bapak/Ibu ingin menyusun dokumen baru, atau mereview/
-memperbaiki dokumen yang sudah ada?"*
+```php
+<?php
+// Load SKILL.md sebagai system prompt
+$systemPrompt = file_get_contents(__DIR__ . '/sakip-drafter/SKILL.md');
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post('https://api.anthropic.com/v1/messages', [
+    'headers' => [
+        'x-api-key'         => env('ANTHROPIC_API_KEY'),
+        'anthropic-version' => '2023-06-01',
+        'Content-Type'      => 'application/json',
+    ],
+    'json' => [
+        'model'      => 'claude-sonnet-4-20250514',
+        'max_tokens' => 4096,
+        'system'     => $systemPrompt,
+        'messages'   => [
+            ['role' => 'user', 'content' => $userInput]
+        ],
+    ],
+]);
+
+$data = json_decode($response->getBody(), true);
+echo $data['content'][0]['text'];
+```
+
+**JavaScript / Node.js:**
+
+```javascript
+import Anthropic from '@anthropic-ai/sdk';
+import fs from 'fs';
+
+const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const systemPrompt = fs.readFileSync('./sakip-drafter/SKILL.md', 'utf-8');
+
+const response = await client.messages.create({
+  model: 'claude-sonnet-4-20250514',
+  max_tokens: 4096,
+  system: systemPrompt,
+  messages: [{ role: 'user', content: userInput }],
+});
+
+console.log(response.content[0].text);
+```
+
+**Python:**
+
+```python
+import anthropic
+
+with open('./sakip-drafter/SKILL.md', 'r') as f:
+    system_prompt = f.read()
+
+client = anthropic.Anthropic(api_key="ANTHROPIC_API_KEY")
+message = client.messages.create(
+    model="claude-sonnet-4-20250514",
+    max_tokens=4096,
+    system=system_prompt,
+    messages=[{"role": "user", "content": user_input}]
+)
+print(message.content[0].text)
+```
+
+> **Catatan:** Untuk output JSON (integrasi database), minta pengguna
+> menambahkan frasa *"dalam format JSON"* di akhir permintaan, atau
+> hardcode instruksi tersebut di system prompt tambahan.
 
 ---
 
-## Catatan Kualitas Output
+## Cara Berbagi ke Rekan Kerja
 
-Claude WAJIB memastikan setiap output SAKIP memenuhi standar berikut:
-- [ ] Indikator SMART-C (Spesifik, Measurable, Achievable, Relevant,
-      Time-bound, Consistent)
-- [ ] Cascading logis (bukan copy-paste antar level)
-- [ ] Nomenklatur sesuai Kepmendagri 050-5889/2021
-- [ ] Tidak ada indikator aktivitas yang menyamar sebagai IKU
-- [ ] Target berbasis baseline (jika data tersedia)
-- [ ] Bahasa sesuai format birokrasi Indonesia baku
+File `sakip-drafter.skill` dapat dibagikan melalui media apa pun:
+
+```
+📦 sakip-drafter.skill (±19KB)
+
+Kirim via:
+├── WhatsApp / Telegram
+├── Email attachment
+├── Google Drive / OneDrive
+├── USB / Flashdisk
+└── GitHub / GitLab (untuk tim developer)
+```
+
+Penerima cukup mengikuti salah satu jalur instalasi di atas sesuai
+kebutuhannya masing-masing.
+
+---
+
+## Ringkasan Pemilihan Jalur
+
+| Konteks Pengguna | Jalur yang Disarankan |
+|---|---|
+| Staf OPD / perencana, pakai browser | **Jalur 1** — Project Instructions claude.ai |
+| Developer, pakai Claude Code CLI | **Jalur 2** — Install `.skill` file |
+| Aplikasi web pemerintah (DeDi, SIM) | **Jalur 3** — Integrasi API |
+| Berbagi ke banyak orang sekaligus | Kirim file `.skill` + arahkan ke README ini |
+
+---
+
+## Contoh Prompt Penggunaan
+
+```
+# Mode DRAFTER
+"Buatkan draf Renstra Dinas Kesehatan Kabupaten Barito Utara 2025–2029.
+ Visi Bupati: '...' Sasaran RPJMD yang relevan: ..."
+
+# Mode REVIEWER
+"Review IKU berikut dari Dinas Perhubungan, apakah sudah sesuai standar SAKIP:
+ 1. Jumlah rapat koordinasi = 12 kali
+ 2. Terlaksananya pengadaan rambu lalu lintas"
+
+# Mode CASCADER
+"Turunkan IKU Kepala Dinas Sosial berikut ke 3 Kabid di bawahnya."
+
+# Mode INDIKATOR
+"Bantu saya merancang IKU yang SMART untuk Dinas Lingkungan Hidup."
+
+# Mode EVALUATOR
+"Simulasikan nilai AKIP Dinas Pertanian kami dengan kondisi berikut: ..."
+
+# Output JSON (untuk integrasi sistem)
+"Buatkan Perjanjian Kinerja Dinas Pendidikan tahun 2025 dalam format JSON."
+```
+
+---
+
+## Regulasi Referensi
+
+| Regulasi | Substansi |
+|---|---|
+| Perpres 29/2014 | Landasan hukum SAKIP |
+| Permendagri 86/2017 | Format RPJMD, Renstra, Renja |
+| Kepmendagri 050-5889/2021 | Nomenklatur program/kegiatan |
+| PermenPAN-RB 53/2014 | Format PK dan LKIP |
+| PermenPAN-RB 88/2021 | Pedoman evaluasi AKIP |
+| PermenPAN-RB 6/2022 | SKP dan kinerja ASN |
+
+---
+
+## Struktur File
+
+```
+sakip-drafter/
+├── SKILL.md                           ← Inti skill (wajib untuk semua jalur)
+├── README.md                          ← Panduan ini
+└── references/
+    ├── mode-drafter.md                ← Template 9 dokumen SAKIP
+    ├── mode-reviewer.md               ← Checklist review & red flags
+    ├── mode-cascader-indikator.md     ← Logika cascading & bank IKU
+    ├── mode-evaluator.md              ← Komponen penilaian AKIP
+    ├── json-schema.md                 ← 5 skema JSON untuk integrasi sistem
+    └── regulasi.md                    ← Referensi regulasi & pasal kritis
+```
+
+---
+
+## Dikembangkan Oleh
+syams_ideris
+**PT Nusa Smart Teknologi (NST/NUSTEK)**
+Kalimantan Selatan, Indonesia
+
+*Skill ini merupakan bagian dari ekosistem eGovernment NST untuk mendukung
+penguatan akuntabilitas kinerja pemerintah daerah di Indonesia.*

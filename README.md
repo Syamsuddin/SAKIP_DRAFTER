@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="img/logo-sakip-drafter.png" alt="Logo SAKIP DRAFTER" width="200"/>
+</p>
+
 <div align="center">
 
 # 🏛️ SAKIP_DRAFTER
@@ -34,7 +38,7 @@
 
 ## 📖 Tentang Skill Ini
 
-**SAKIP_DRAFTER** adalah skill Claude yang membekali AI dengan pengetahuan mendalam tentang sistem **Akuntabilitas Kinerja Instansi Pemerintah (SAKIP)** untuk lingkungan Pemerintah Daerah Indonesia. Skill ini bertindak sebagai konsultan SAKIP berpengalaman yang memahami regulasi, logika cascading, tipologi indikator, dan format birokrasi Indonesia.
+**SAKIP_DRAFTER** adalah skill Claude yang membekali AI dengan pengetahuan mendalam tentang sistem **Akuntabilitas Kinerja Instansi Pemerintah (SAKIP)** untuk lingkungan Pemerintah Daerah Indonesia. S[...]
 
 Cukup bicara natural dalam chat — skill mendeteksi kebutuhan dan mengaktifkan mode yang tepat secara otomatis.
 
@@ -241,7 +245,7 @@ print(message.content[0].text)
 ## 📦 Berbagi ke Laptop / Akun Lain
 
 File `sakip-drafter.skill` (±23KB) adalah satu file mandiri yang bisa
-dikirim via media apapun:
+kirim via media apapun:
 
 ```
 📦 sakip-drafter.skill
@@ -354,3 +358,4 @@ penguatan akuntabilitas kinerja instansi pemerintah daerah di Indonesia.*
 ![For Indonesia](https://img.shields.io/badge/For-Indonesia_Gov-red?style=flat-square)
 
 </div>
+

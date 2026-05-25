@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/Claude-Skill-blueviolet?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Skill"/>
   <img src="https://img.shields.io/badge/Bahasa-Indonesia-red?style=for-the-badge&logo=indonesia&logoColor=white" alt="Bahasa Indonesia"/>
   <img src="https://img.shields.io/badge/Versi-1.0.0-brightgreen?style=for-the-badge" alt="Version"/>
-  <img src="https://img.shields.io/badge/Lisensi-MIT-blue?style=for-the-badge" alt="License"/>
+  <img src="https://img.shields.io/badge/Lisensi-GPLv3-blue?style=for-the-badge&logo=gnu&logoColor=white" alt="License: GNU GPLv3"/>
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
 
 ## 📖 Tentang Skill Ini
 
-**SAKIP_DRAFTER** adalah skill Claude yang membekali AI dengan pengetahuan mendalam tentang sistem **Akuntabilitas Kinerja Instansi Pemerintah (SAKIP)** untuk lingkungan Pemerintah Daerah Indonesia. S[...]
+**SAKIP_DRAFTER** adalah skill Claude yang membekali AI dengan pengetahuan mendalam tentang sistem **Akuntabilitas Kinerja Instansi Pemerintah (SAKIP)** untuk lingkungan Pemerintah Daerah Indonesia. Skill ini menguasai regulasi kunci (Perpres 29/2014, Permendagri 86/2017, PermenPAN-RB 88/2021, dsb) dan template dokumen SAKIP resmi.
 
 Cukup bicara natural dalam chat — skill mendeteksi kebutuhan dan mengaktifkan mode yang tepat secara otomatis.
 

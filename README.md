@@ -332,7 +332,7 @@ sakip-drafter/
 ## 🏢 Dikembangkan Oleh
 
 <div align="center">
-
+@syams_ideris
 **PT Nusa Smart Teknologi**
 
 ![NST](https://img.shields.io/badge/NST-NUSTEK-1a73e8?style=for-the-badge)
